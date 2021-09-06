@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
 from random import uniform
 
-from business_object.pokemon.abstract_pokemon import AbstractPokemon
 from business_object.attack.abstract_attack import AbstractAttack
+from business_object.pokemon.abstract_pokemon import AbstractPokemon
+
 
 class AbstractFormulaAttack(AbstractAttack):
 
