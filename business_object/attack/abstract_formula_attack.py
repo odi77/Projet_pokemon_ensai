@@ -2,14 +2,9 @@ from abc import ABC, abstractmethod
 from random import uniform
 
 from business_object.pokemon.abstract_pokemon import AbstractPokemon
+from business_object.attack.abstract_attack import AbstractAttack
 
-
-class AbstractFormulaAttack(ABC):
-    def __init__(self, power: int = None, name: str = None,
-                 description: str = None):
-        self._power = power
-        self._name = name
-        self._description = description
+class AbstractFormulaAttack(AbstractAttack):
 
     def compute_damage(self
                        , attacker: AbstractPokemon
