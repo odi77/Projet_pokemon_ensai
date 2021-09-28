@@ -36,7 +36,7 @@ class TestPhysicalFormulaAttack(TestCase):
         pikachu = AttackerPokemon()
         venusaur = AttackerPokemon(stat_current=Statistic(defense=defense))
         # WHEN
-        defense_stat = basic_hit.get_defense_stat(pikachu, venusaur)
+        defense_stat = basic_hit.get_defense_stat(venusaur)
         # THEN
         self.assertEqual(defense, defense_stat)
 
@@ -48,6 +48,6 @@ class TestPhysicalFormulaAttack(TestCase):
         pikachu = AttackerPokemon(stat_current=Statistic(attack=attack))
         venusaur = AttackerPokemon()
         # WHEN
-        attack_stat = basic_hit.get_attack_stat(pikachu, venusaur)
+        attack_stat = basic_hit.get_attack_stat(pikachu)
         # THEN
         self.assertEqual(attack, attack_stat)

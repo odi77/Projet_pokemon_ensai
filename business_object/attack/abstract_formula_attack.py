@@ -45,7 +45,7 @@ class AbstractFormulaAttack(AbstractAttack):
 
         """
         raw_power = (attacker.level * 0.4 + 2) * self.get_attack_stat(attacker) * self._power
-        raw_damage = raw_power / (self.get_defense_stat(attacker) * 50) + 2
+        raw_damage = raw_power / (self.get_defense_stat(defender) * 50) + 2
         rand = uniform(0.85, 1)
         final_damage = raw_damage \
                        * attacker.get_pokemon_attack_coef() \

@@ -8,9 +8,12 @@ from utils.singleton import Singleton
 class AttackFactory(metaclass=Singleton):
     def instantiate_attack(self
                             , type:str
+                            , id:int
                             , power: int = None
                             , name: str = None
-                            , description: str = None )->AbstractAttack:
+                            , description: str = None
+                            , accuracy:int = None
+                            , element:str = None )->AbstractAttack:
         """
         Instantiate an AbstractAttack based on the provided type
 
@@ -26,21 +29,29 @@ class AttackFactory(metaclass=Singleton):
         :return: the instantiate attack
         :rtype: AbstractAttack
         """
+        attack = None
         if type=="special attack":
-            attack = SpecialFormulaAttack(power=power
+            attack = SpecialFormulaAttack(id=id
+                                        , power=power
                                         , name=name
                                         , description=description
+                                        , accuracy=accuracy
+                                        , element=element
                                     )
         elif type=="physical attack":
-            attack = PhysicalFormulaAttack(power=power
+            attack = PhysicalFormulaAttack(id
+                                        ,power=power
                                         , name=name
                                         , description=description
+                                        , accuracy=accuracy
+                                        , element=element
                                     )
         elif type=="fixed damage":
-            attack = FixedDamageAttack(power=power
+            attack = FixedDamageAttack(id
+                                        , power=power
                                         , name=name
                                         , description=description
+                                        , accuracy=accuracy
+                                        , element=element
                                     )
-        else :
-            raise Exception(f"Le type {type} n'est pas utilisé")
         return attack

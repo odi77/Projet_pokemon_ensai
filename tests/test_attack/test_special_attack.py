@@ -36,7 +36,7 @@ class TestSpecialFormulaAttack(TestCase):
         pikachu = AttackerPokemon()
         venusaur = AttackerPokemon(stat_current=Statistic(sp_def=sp_def))
         # WHEN
-        defense_stat = special_hit.get_defense_stat(pikachu, venusaur)
+        defense_stat = special_hit.get_defense_stat(venusaur)
         # THEN
         self.assertEqual(sp_def, defense_stat)
 
@@ -48,6 +48,6 @@ class TestSpecialFormulaAttack(TestCase):
         pikachu = AttackerPokemon(stat_current=Statistic(sp_atk=sp_attack))
         venusaur = AttackerPokemon()
         # WHEN
-        attack_stat = special_hit.get_attack_stat(pikachu, venusaur)
+        attack_stat = special_hit.get_attack_stat(pikachu)
         # THEN
         self.assertEqual(sp_attack, attack_stat)

@@ -55,9 +55,9 @@ class TestBattleService(TestCase):
         )
 
         # THEN
-        self.assertEquals(pikachu, combat.winner)
+        self.assertEqual(pikachu, combat.winner)
         self.assertIsNotNone(combat.rounds)
-        self.assertEquals(0, snorlax.hp_current)
+        self.assertEqual(0, snorlax.hp_current)
 
     @patch.multiple(AbstractPokemon, __abstractmethods__=set())
     def test_get_order_no_draw(self):
@@ -73,8 +73,8 @@ class TestBattleService(TestCase):
         first, second = battle_service.get_order(pikachu, charizard)
 
         # THEN
-        self.assertEquals(charizard, first)
-        self.assertEquals(pikachu, second)
+        self.assertEqual(charizard, first)
+        self.assertEqual(pikachu, second)
 
 
     @patch.multiple(AbstractPokemon, __abstractmethods__=set())
@@ -91,8 +91,8 @@ class TestBattleService(TestCase):
         first, second = battle_service.get_order(pikachu, charizard)
 
         # THEN
-        self.assertEquals(pikachu, first)
-        self.assertEquals(charizard, second)
+        self.assertEqual(pikachu, first)
+        self.assertEqual(charizard, second)
 
 
     def test_choose_attack_1(self):
@@ -119,7 +119,7 @@ class TestBattleService(TestCase):
         choosen_attack = battle_service.choose_attack(pikachu)
 
         # THEN
-        self.assertEquals(tonnerre, choosen_attack)
+        self.assertEqual(tonnerre, choosen_attack)
 
 
     def test_choose_attack_special_attack(self):
@@ -146,4 +146,4 @@ class TestBattleService(TestCase):
         choosen_attack = battle_service.choose_attack(pikachu)
 
         # THEN
-        self.assertEquals(pikachu.special_attack, choosen_attack)
+        self.assertEqual(pikachu.special_attack, choosen_attack)
