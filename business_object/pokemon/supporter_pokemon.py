@@ -4,6 +4,7 @@ from business_object.pokemon.abstract_pokemon import AbstractPokemon
 
 class SupporterPokemon(AbstractPokemon):
     def __init__(self
+                 , id=None
                  , stat_max=None
                  , stat_current=None
                  , level=None
@@ -14,7 +15,8 @@ class SupporterPokemon(AbstractPokemon):
                                               , name="Healing Song"
                                               , description="{pokemon.name} sings a beautiful song ")
 
-        super().__init__(stat_max=stat_max
+        super().__init__(id=id 
+                         , stat_max=stat_max
                          , stat_current=stat_current
                          , level=level
                          , name=name

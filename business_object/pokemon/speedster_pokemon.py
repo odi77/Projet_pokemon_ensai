@@ -4,6 +4,7 @@ from business_object.pokemon.abstract_pokemon import AbstractPokemon
 
 class SpeedsterPokemon(AbstractPokemon):
     def __init__(self
+                 , id=None
                  , stat_max=None
                  , stat_current=None
                  , level=None
@@ -15,7 +16,8 @@ class SpeedsterPokemon(AbstractPokemon):
                                               , description="{pokemon.name} hits with all the"\
                                               "power of the darkness")
 
-        super().__init__(stat_max=stat_max
+        super().__init__(id=id 
+                         , stat_max=stat_max
                          , stat_current=stat_current
                          , level=level
                          , name=name

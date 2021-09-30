@@ -12,6 +12,7 @@ from utils.singleton import Singleton
 class PokemonFactory(metaclass=Singleton):
     def instantiate_pokemon(self
                  , type:str
+                 , id:int=None
                  , hp: int = 0
                  , attack: int = 0
                  , defense: int = 0
@@ -67,6 +68,7 @@ class PokemonFactory(metaclass=Singleton):
                     sp_def=sp_def,
                     speed=speed
                 )
+                , id=id
                 , level=level
                 , name=name
                 , common_attacks=common_attacks)
@@ -88,6 +90,7 @@ class PokemonFactory(metaclass=Singleton):
                     sp_def=sp_def,
                     speed=speed
                 )
+                , id=id
                 , level=level
                 , name=name
                 , common_attacks=common_attacks)
@@ -109,6 +112,7 @@ class PokemonFactory(metaclass=Singleton):
                     sp_def=sp_def,
                     speed=speed
                 )
+                , id=id
                 , level=level
                 , name=name
                 , common_attacks=common_attacks)
@@ -130,6 +134,7 @@ class PokemonFactory(metaclass=Singleton):
                     sp_def=sp_def,
                     speed=speed
                 )
+                , id=id
                 , level=level
                 , name=name
                 , common_attacks=common_attacks)
@@ -151,6 +156,7 @@ class PokemonFactory(metaclass=Singleton):
                     sp_def=sp_def,
                     speed=speed
                 )
+                , id=id
                 , level=level
                 , name=name
                 , common_attacks=common_attacks)

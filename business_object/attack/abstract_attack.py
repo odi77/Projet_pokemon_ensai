@@ -41,6 +41,11 @@ class AbstractAttack(ABC):
     def id(self):
         return self._id
 
+    @id.setter
+    def id(self, value):
+        self._id = value
+
+
     @property
     def power(self):
         return self._power

@@ -13,6 +13,7 @@ class AbstractPokemon(ABC):
     """
 
     def __init__(self
+                 , id=None
                  , stat_max=None
                  , stat_current=None
                  , level=None
@@ -23,6 +24,7 @@ class AbstractPokemon(ABC):
         self._stat_max: Statistic = stat_max
         self._stat_current: Statistic = stat_current
         self._level: int = level
+        self._id:int = id
         self._name: str = name
         self._common_attacks: List[AbstractAttack] = common_attacks
         self._gear: AbstractGear = gear
@@ -153,3 +155,19 @@ class AbstractPokemon(ABC):
     @property
     def special_attack(self):
         return  self._special_attack
+
+    @property
+    def id(self):
+        """The id property."""
+        return self._id
+    @id.setter
+    def id(self, value):
+        self._id = value
+
+    @property
+    def common_attacks(self):
+        """The common_attacks property."""
+        return self._common_attacks
+    @common_attacks.setter
+    def common_attacks(self, value):
+        self._common_attacks = value
