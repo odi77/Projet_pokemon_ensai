@@ -22,3 +22,11 @@ class TestPokemonClient(TestCase):
 
         # THEN
         self.assertEqual(pokemon_name, pokemon.name)
+
+    def test_get_all_pokemon_ok(self):
+        # GIVEN
+        pokemon_client = PokemonClient()
+        # WHEN
+        pokemons = pokemon_client.get_all_pokemon()
+        # THEN
+        self.assertIsNotNone(pokemons)
