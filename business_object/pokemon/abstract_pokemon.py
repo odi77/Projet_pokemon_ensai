@@ -2,7 +2,7 @@ import copy
 from abc import ABC, abstractmethod
 from typing import List
 
-from business_object.attack.abstract_attack import AbstractAttack
+import business_object.attack.abstract_attack as attck
 from business_object.gear.abstract_gear import AbstractGear
 from business_object.statistic import Statistic
 
@@ -24,9 +24,9 @@ class AbstractPokemon(ABC):
         self._stat_current: Statistic = stat_current
         self._level: int = level
         self._name: str = name
-        self._common_attacks: List[AbstractAttack] = common_attacks
+        self._common_attacks: List[attck.AbstractAttack] = common_attacks
         self._gear: AbstractGear = gear
-        self._special_attack: AbstractAttack = special_attack
+        self._special_attack: attck.AbstractAttack = special_attack
 
     @abstractmethod
     def get_pokemon_attack_coef(self) -> float:

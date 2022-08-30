@@ -5,6 +5,6 @@ from business_object.pokemon.abstract_pokemon import AbstractPokemon
 class FixedDamageAttack(AbstractAttack):
 
     def compute_damage(self
-                       , attacker: AbstractPokemon
-                       , defender: AbstractPokemon) -> int:
+                       , pkmn_attcker: 'AbstractPokemon'
+                       , pkmn_targeted: 'AbstractPokemon') -> int:
         return self._power

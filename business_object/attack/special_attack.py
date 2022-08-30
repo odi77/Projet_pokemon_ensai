@@ -4,13 +4,13 @@ from business_object.pokemon.abstract_pokemon import AbstractPokemon
 
 class SpecialFormulaAttack(AbstractFormulaAttack):
     def get_attack_stat(self
-                        , attacker: AbstractPokemon
-                        , defender: AbstractPokemon) -> float:
-        return attacker.sp_atk_current
+                        , pkmn_attcker: AbstractPokemon
+                        , pkmn_targeted: AbstractPokemon) -> float:
+        return pkmn_attcker.sp_atk_current
 
     def get_defense_stat(self
-                         , attacker: AbstractPokemon
-                         , defender: AbstractPokemon) -> float:
-        return defender.sp_def_current
+                         , pkmn_attcker: AbstractPokemon
+                         , pkmn_targeted: AbstractPokemon) -> float:
+        return pkmn_targeted.sp_def_current
 
 

@@ -6,23 +6,23 @@ from business_object.pokemon.abstract_pokemon import AbstractPokemon
 
 class Battle:
     def __init__(self
-                 , first_monstie : AbstractPokemon
-                 , second_monstie: AbstractPokemon) -> None:
+                 , pkmn1 : AbstractPokemon
+                 , pkmn2: AbstractPokemon) -> None:
             
-        self.__first_monstie: AbstractPokemon = first_monstie
-        self.__second_monstie: AbstractPokemon = second_monstie
+        self.__pkmn1: AbstractPokemon = pkmn1
+        self.__pkmn2: AbstractPokemon = pkmn2
         self.__rounds: List[Round] = []
         self.__winner: AbstractPokemon = None
         self.__final_phrase: str = ""
 
 
     def add_round(self
-                  , attacker
-                  , defender
+                  , pkmn_attcker
+                  , pkmn_targeted
                   , dealt_damage
                   , attack_description):
-        self.__rounds.append(Round(attacker=attacker
-                                   , defender=defender
+        self.__rounds.append(Round(pkmn_attcker=pkmn_attcker
+                                   , pkmn_targeted=pkmn_targeted
                                    , dealt_damage=dealt_damage
                                    , attack_description=attack_description))
 
@@ -32,8 +32,8 @@ class Battle:
         return self.__first_monstie
 
     @property
-    def second_monstie(self):
-        return self.__second_monstie
+    def pkmn2(self):
+        return self.__pkmn2
 
     @property
     def rounds(self):

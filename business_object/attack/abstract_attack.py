@@ -12,8 +12,8 @@ class AbstractAttack(ABC):
 
     @abstractmethod
     def compute_damage(self
-                       , attacker: 'AbstractPokemon'
-                       , defender: 'AbstractPokemon') -> int:
+                       , pkmn_attcker: 'AbstractPokemon'
+                       , pkmn_targeted: 'AbstractPokemon') -> int:
         """
          Return the damage of the attack.
          It's an abstract method because some attack will have variable damages,

@@ -2,14 +2,14 @@ from abc import ABC, abstractmethod
 from random import uniform
 
 from business_object.attack.abstract_attack import AbstractAttack
-from business_object.pokemon.abstract_pokemon import AbstractPokemon
+import business_object.pokemon.abstract_pokemon as pkm
 
 
 class AbstractFormulaAttack(AbstractAttack):
 
     def compute_damage(self
-                       , attacker: AbstractPokemon
-                       , defender: AbstractPokemon) -> int:
+                       , pkmn_attcker: pkm.AbstractPokemon
+                       , pkmn_targeted: pkm.AbstractPokemon) -> int:
         """
         Return the damage of the attack.
 
@@ -17,10 +17,10 @@ class AbstractFormulaAttack(AbstractAttack):
             (((Niv×0.4+2)×Att×Pui)/(Def×50)+2)×pkemn_coefxother_modifier*random
         and we take the integer part.
         With
-            Att = attacker's Attack or Special
-            Def = defender's Defense or Special
+            Att = pkmn_attcker's Attack or Special
+            Def = pkmn_targeted's Defense or Special
             Pui = attack's power
-            pkemn : attacker's damage multiplier
+            pkemn : pkmn_attcker's damage multiplier
             other_modifier = all other modifiers (crit, status, etc)
             random = a random number between 0.85 an d1
 
@@ -30,39 +30,39 @@ class AbstractFormulaAttack(AbstractAttack):
             - the Att and Def used for the calculation are not fixed
 
         To achieve this we need some other abstract methods :
-            - get_attack_stat() : get the attacker stat_max (attack or spe_atk)
-            - get_defense_stat() : get the defender stat_max (defense or spe_def)
+            - get_attack_stat() : get the pkmn_attcker stat_max (attack or spe_atk)
+            - get_defense_stat() : get the pkmn_targeted stat_max (defense or spe_def)
 
         The the template method pattern for more info  :
             -> https://refactoring.guru/design-patterns/template-method
 
         Args:
-            attacker (AbstractPokemon): the attacker for it's stat_max
-            defender (AbstractPokemon): the attacker for it's stat_max
+            pkmn_attcker (AbstractPokemon): the pkmn_attcker for it's stat_max
+            pkmn_targeted (AbstractPokemon): the pkmn_attcker for it's stat_max
 
         Returns:
             int : the damage
 
         """
-        raw_power = (attacker.level * 0.4 + 2) * self.get_attack_stat(attacker) * self._power
-        raw_damage = raw_power / (self.get_defense_stat(attacker) * 50) + 2
+        raw_power = (pkmn_attcker.level * 0.4 + 2) * self.get_attack_stat(pkmn_attcker, pkmn_targeted) * self._power
+        raw_damage = raw_power / (self.get_defense_stat(pkmn_attcker,pkmn_targeted) * 50) + 2
         rand = uniform(0.85, 1)
         final_damage = raw_damage \
-                       * attacker.get_pokemon_attack_coef() \
-                       * self.other_modifier_atk(attacker) \
-                       * self.other_modifier_def(defender) \
+                       * pkmn_attcker.get_pokemon_attack_coef() \
+                       * self.other_modifier_atk(pkmn_attcker) \
+                       * self.other_modifier_def(pkmn_targeted) \
                        * rand
         return int(final_damage)
 
     @abstractmethod
     def get_attack_stat(self
-                        , attacker: AbstractPokemon) -> float:
+                        , pkmn_attcker: pkm.AbstractPokemon) -> float:
         """
         Get the stat_max use to compute the raw power of the attack.
-        We keep the defender because we can want attack based on the
-        defender stat like remaining hp.
+        We keep the pkmn_targeted because we can want attack based on the
+        pkmn_targeted stat like remaining hp.
         Args:
-            attacker (AbstractPokemon): the attacker for it's stat_max
+            pkmn_attcker (AbstractPokemon): the pkmn_attcker for it's stat_max
         Returns:
             float : the used stat_max
 
@@ -71,13 +71,13 @@ class AbstractFormulaAttack(AbstractAttack):
 
     @abstractmethod
     def get_defense_stat(self
-                         , attacker: AbstractPokemon) -> float:
+                         , pkmn_attcker: pkm.AbstractPokemon) -> float:
         """
         Get the stat_max use to compute the raw damage of the attack.
-        We keep the attacker because we can want damage reduction based
-        on the attacker stat like max hp.
+        We keep the pkmn_attcker because we can want damage reduction based
+        on the pkmn_attcker stat like max hp.
         Args:
-            attacker (AbstractPokemon): the attacker for it's stat_max
+            pkmn_attcker (AbstractPokemon): the pkmn_attcker for it's stat_max
 
         Returns:
             float : the used stat_max
@@ -87,13 +87,13 @@ class AbstractFormulaAttack(AbstractAttack):
 
 
     def other_modifier_atk(self
-                           , attacker: AbstractPokemon) -> float:
+                           , pkmn_attcker: pkm.AbstractPokemon) -> float:
         """
         Compute all the other modifiers (status mod, etc)
         For this lab it's only a dummy function. It can be
         overridden if needed
         Args:
-            attacker (AbstractPokemon): the attacker
+            pkmn_attcker (AbstractPokemon): the pkmn_attcker
 
         Returns:
 
@@ -101,13 +101,13 @@ class AbstractFormulaAttack(AbstractAttack):
         return 1
 
     def other_modifier_def(self
-                           , defender: AbstractPokemon) -> float:
+                           , pkmn_targeted: pkm.AbstractPokemon) -> float:
         """
         Compute all the other modifiers (status mod, etc)
         For this lab it's only a dummy function. It can be
         overridden if needed
         Args:
-            defender (AbstractPokemon): the defender
+            pkmn_targeted (AbstractPokemon): the pkmn_targeted
 
         Returns:
 
