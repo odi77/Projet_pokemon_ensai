@@ -3,6 +3,11 @@
 from abstract_pokemon import AbstractPokemon
 
 class Attacker(AbstractPokemon):
+    """classe Attacker
+
+    Args:
+        AbstractPokemon (classe): classe abstraite
+    """
 
     def __init__(self, current_stat, level, name, speed_current, speed_attack):
         super.__init__(self, current_stat, level, name)
