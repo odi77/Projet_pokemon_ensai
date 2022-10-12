@@ -1,7 +1,7 @@
 """classe abstraite pokemon """
 
 from abc import ABC, abstractmethod
-from ... import Statistique
+from business_object.statistique import Statistique
 
 class AbstractPokemon(ABC):
     """_summary_
