@@ -2,7 +2,7 @@
 """
 
 from abstract_pokemon import AbstractPokemon
-from ... import Statistique
+
 
 class Allrounder(AbstractPokemon):
     """classe Allrounder
@@ -12,6 +12,10 @@ class Allrounder(AbstractPokemon):
 
     Examples
     --------
+    >>> from .. import Statistique
+    >>> stat_pikachu = Statistique(20, 20, 20, 10, 10, 15)
+    >>> pikachu = Allrounder(stat_pikachu, 1, "Pikachu")
+    >>> type(pikachu)
     """
     def __init__(self, current_stat, level, name):
         """_summary_
@@ -27,7 +31,7 @@ class Allrounder(AbstractPokemon):
 
         Examples
         ---------
-        >>> from
+
         """
         super().__init__(current_stat, level, name)
 
@@ -44,7 +48,7 @@ class Allrounder(AbstractPokemon):
         --------
 
         """
-        return 1 + (self.current_stat. + self.sp_def_current)/200
+        return 1 + (self.current_stat.spe_atk + self.current_stat.spe_def)/200
 
 
 if __name__ == "__main__":
