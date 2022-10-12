@@ -1,1 +1,1 @@
-from business_object.abstract_pokemon import *
+from Projet_pokemon_ensai.business_object.pokemon.abstract_pokemon import *
