@@ -10,6 +10,8 @@ class AbstractPokemon(ABC):
     ----------
     ABC : _type_
         _description_
+
+    Pas d'Examples car classe abstraite
     """
     # constructeur
     def __init__(self, current_stat:Statistique, level, name):
@@ -17,12 +19,14 @@ class AbstractPokemon(ABC):
 
         Parameters
         ----------
-        current_stat : _type_
+        current_stat : Statistique
             _description_
-        level : _type_
+        level : int
             _description_
-        name : _type_
+        name : str
             _description_
+
+        Pas d'Examples car classe abstraite
         """
         self._current_stat = current_stat
         self._name = name

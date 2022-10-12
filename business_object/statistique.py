@@ -2,7 +2,15 @@
 """
 
 class Statistique:
-    """_summary_
+    """les statistiques de combat du Pokemon
+
+    Examples
+    --------
+    >>> grosse_stat = Statistique(100, 100, 100, 100, 100, 100)
+    >>> type(grosse_stat)
+    <class '__main__.Statistique'>
+    >>> print(grosse_stat._attack)
+    100
     """
     def __init__(self,
                     hp,
@@ -34,3 +42,7 @@ class Statistique:
         self._spe_atk = spe_atk
         self._spe_def = spe_def
         self._vitesse = vitesse
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
