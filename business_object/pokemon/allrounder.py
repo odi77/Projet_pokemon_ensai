@@ -1,7 +1,7 @@
 """allrounder
 """
 
-from business_object.pokemon.abstract_pokemon import AbstractPokemon
+from Projet_pokemon_ensai.business_object.pokemon.abstract_pokemon import AbstractPokemon
 
 
 class Allrounder(AbstractPokemon):
