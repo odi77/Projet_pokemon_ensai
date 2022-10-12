@@ -1,7 +1,7 @@
 """classe abstraite pokemon """
 
 from abc import ABC, abstractmethod
-
+from ... import Statistique
 
 class AbstractPokemon(ABC):
     """_summary_
@@ -12,7 +12,7 @@ class AbstractPokemon(ABC):
         _description_
     """
     # constructeur
-    def __init__(self, current_stat, level, name):
+    def __init__(self, current_stat:Statistique, level, name):
         """_summary_
 
         Parameters
