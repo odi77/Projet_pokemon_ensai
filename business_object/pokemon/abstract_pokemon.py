@@ -19,13 +19,15 @@ class AbstractPokemon(ABC):
     100
     """
     # constructeur
-    def __init__(self, current_stat:Statistique, level, name):
+    def __init__(self, stat_max:Statistique ,current_stat:Statistique, level, name):
         """_summary_
 
         Parameters
         ----------
+        stat_max : Statistique
+            les stats maximales que le pokemon peut atteindre
         current_stat : Statistique
-            _description_
+            les stats actuelles du pokemon
         level : int
             _description_
         name : str
@@ -33,6 +35,7 @@ class AbstractPokemon(ABC):
 
         Pas d'Examples car classe abstraite
         """
+        self._stat_max = stat_max
         self._current_stat = current_stat
         self._name = name
         self._level = level
@@ -46,6 +49,9 @@ class AbstractPokemon(ABC):
         """augmente le niveau du pokemon de 1 (commun à tous les pokemon)
         """
         self._level += 1
+
+
+
 
 if __name__ == "__main__":
     import doctest
