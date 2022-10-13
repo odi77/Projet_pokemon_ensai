@@ -12,6 +12,11 @@ class AbstractPokemon(ABC):
         _description_
 
     Pas d'Examples car classe abstraite
+
+    >>> from Projet_pokemon_ensai.business_object.statistique import Statistique
+    >>> grosse_stat = Statistique(100, 100, 100, 100, 100, 100)
+    >>> print(grosse_stat._attack)
+    100
     """
     # constructeur
     def __init__(self, current_stat:Statistique, level, name):
@@ -41,3 +46,7 @@ class AbstractPokemon(ABC):
         """augmente le niveau du pokemon de 1 (commun à tous les pokemon)
         """
         self._level += 1
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
