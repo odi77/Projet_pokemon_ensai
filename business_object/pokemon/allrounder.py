@@ -19,6 +19,9 @@ class Allrounder(AbstractPokemon):
     >>> Charizard = Allrounder(grosse_stat, 1, "Charizard")
     >>> Charizard._name
     'Charizard'
+    >>> Charizard._current_stat._spe_atk
+    100
+
 
 
 
